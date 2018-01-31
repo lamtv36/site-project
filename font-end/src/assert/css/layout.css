@@ -1,0 +1,46 @@
+body {
+	height: "100vh";
+}
+
+#layout {
+	height: "100vh";
+}
+#header,
+	#footer {
+		background-color: #f1f1f1;
+	}
+	
+	#sidebar {
+		background-color: #d2d2d2;
+		height: 100%
+	}
+	
+	/* sizes */
+	#main-wrap{
+		min-height: 400px;
+		height: 80%
+	}
+	
+	
+	#header,
+	#footer {
+		min-height: 20px;
+		height: 15%
+	}
+	
+	#header,
+	#footer {
+	    min-height: 40px;
+	}
+	
+
+	
+	#sidebar {
+	    float: left;
+	    width: 20%;
+	}
+	
+	#content-wrap {
+	    float: right;
+	    width: 80%;
+	}  
