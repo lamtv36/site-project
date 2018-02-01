@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import Layout from "../../components/layout" ;
 
 export default class Resource extends Component {
 
   render() {
     return (
-      <div>
-        Resource
-      </div>
+      <Layout>
+        <div>
+          Resource
+        </div>
+        </Layout>
     );
   }
 }

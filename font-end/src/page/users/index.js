@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
-import FullyCustomInsertButtonTable from "../../components/table"
-
-import Layout from "../../components/layout";
+import $ from "jquery";
+import FullyCustomInsertButtonTable from "./components/table"
+import Layout from "../../components/layout" ;
 
 export default class Users extends Component {
   constructor(){
     super();
     this.state = {
-      data: []
+      data: [{
+        id: 1,
+      name: "Product1",
+      email: 120
+      }],
+      formater: {
+        name: {
+
+        }
+      }
     }
+    this.onload();
   }
 
+  onload(){
+    const hostAddress = "http://localhost:8080/ns1/users/list";
+    const that = this;
+    $.get( hostAddress, function( data ) {
+      const state = that.state;
+      state.data = data.rows;
+      that.setState(state);
+    });
+  }
   render() {
-    let divStyle1 = {
-      display: "inline-block",
-      width: "150px",
-      height: "100%",
-      border: "1px solid gray"
-    }
-    let divStyle2 = {
-      display: "inline-block",
-      width: "800px",
-      border: "1px solid gray",
-    }
     return (
-      <Layout><FullyCustomInsertButtonTable style={{margin: "20px"}}/></Layout>
+      <Layout>
+        <FullyCustomInsertButtonTable 
+        data={this.state.data} 
+        formarter = {this.state.formater}
+        />
+        </Layout>
     );
   }
 }

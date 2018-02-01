@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import Layout from "../../components/layout" ;
 
 export default class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        Dashboard
-      </div>
+      <Layout>
+        <div>Dashboard</div>
+      </Layout>
     );
   }
 }

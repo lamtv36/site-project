@@ -37,7 +37,7 @@ CREATE TABLE `m_user` (
 
 LOCK TABLES `m_user` WRITE;
 /*!40000 ALTER TABLE `m_user` DISABLE KEYS */;
-INSERT INTO `m_user` VALUES (0,'Lam','tester','9765a76',NULL),(0,'hello world','lamtv@gmail.com','12346',NULL),(0,'hello world','lamtv@gmail.com','12346',NULL),(0,'hello world','1lamtv@gmail.com','12346',NULL),(0,'helloworld','1lamtv@gmail.com','112346',NULL),(0,'helloworld','1lamtv@gmail.com','112346',NULL);
+INSERT INTO `m_user` VALUES (0,'Lam','tester','9765a76',NULL),(1,'hello world','lamtv@gmail.com','12346',NULL),(2,'hello world','lamtv@gmail.com','12346',NULL),(3,'hello world','1lamtv@gmail.com','12346',NULL),(4,'helloworld','1lamtv@gmail.com','112346',NULL),(5,'helloworld','1lamtv@gmail.com','112346',NULL);
 /*!40000 ALTER TABLE `m_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

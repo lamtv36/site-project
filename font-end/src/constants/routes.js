@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import {
     Dashboard,
@@ -7,33 +7,20 @@ import {
     Resource,
     Schedule,
     Users,
-    Profile
+    Topics
 } from "../page";
-let style = {
-  display: "inline-flex",
-  listStyleType: "none",
-  margin: "0px",
-  paddingLeft: "10px",
-};
 
-let liStyle = {
-  padding: "10px",
-}
 export default () => (
-  <div>
-    <Router>
-      <div >
-        <div>
-          <Route exact path="/" component={Dashboard}/>
-          <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/meeting" component={Meeting}/>
-          <Route path="/resources" component={Resource}/>
-          <Route path="/schedule" component={Schedule}/>
-          <Route path="/profile" component={Profile}/>
-          <Route path="/users" component={Users}/>
-        </div>
+  <Router>
+      <div>
+        <Route exact path="/" component={Dashboard}/>
+        <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/meeting" component={Meeting}/>
+        <Route path="/resources" component={Resource}/>
+        <Route path="/schedule" component={Schedule}/>
+        <Route path="/topics" component={Topics}/>
+        <Route path="/users" component={Users}/>
       </div>
-    </Router>
-  </div>
+  </Router>
 )
 

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import Layout from "../../components/layout" ;
 
 export default class Meeting extends Component {
 
   render() {
     return (
-      <div>
-        Meeting
-      </div>
+      <Layout>
+        <div>
+          Meeting
+        </div>
+      </Layout>
     );
   }
 }

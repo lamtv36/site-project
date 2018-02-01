@@ -1,46 +1,46 @@
-body {
-	height: "100vh";
+div.container {
+    width: 100%;
 }
 
-#layout {
-	height: "100vh";
+header, footer {
+	padding: 0.1em;
+    clear: left;
 }
-#header,
-	#footer {
-		background-color: #f1f1f1;
-	}
-	
-	#sidebar {
-		background-color: #d2d2d2;
-		height: 100%
-	}
-	
-	/* sizes */
-	#main-wrap{
-		min-height: 400px;
-		height: 80%
-	}
-	
-	
-	#header,
-	#footer {
-		min-height: 20px;
-		height: 15%
-	}
-	
-	#header,
-	#footer {
-	    min-height: 40px;
-	}
-	
 
-	
-	#sidebar {
-	    float: left;
-	    width: 20%;
-	}
-	
-	#content-wrap {
-	    float: right;
-	    width: 80%;
-	}  
+header {
+	border-bottom: 1px solid grey;
+}
+
+footer {
+	text-align: center;
+	border-top: 1px solid grey;
+}
+
+nav {
+    float: left;
+	max-width: 300px;
+	min-width: 200px;
+    margin: 0;
+	padding: 1em;
+	border-right: 2px solid grey;
+}
+
+nav ul {
+    list-style-type: none;
+	padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+	flex: 1;
+	overflow: auto;
+    margin-left: 10px;
+    padding: 1em;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	box-sizing: border-box;
+	min-width: 400px;
+}
