@@ -2,16 +2,20 @@ package com.ntqsolution.SiteProject.repository.entites;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="m_user")
 public class User {
 	@Id
-//    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int id;
 	private String name;
@@ -19,6 +23,12 @@ public class User {
 	private String password;
 	@Column(name="nick_name", nullable = true)
 	private String nickName;
+	@OneToOne(cascade=CascadeType.ALL)
+	private Team team;
+	private Date joinDate;
+	private String codeFight;
+	private boolean active;
+	
 	
 	public User() {
 		
@@ -69,5 +79,37 @@ public class User {
 
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Date getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+
+	public String getCodeFight() {
+		return codeFight;
+	}
+
+	public void setCodeFight(String codeFight) {
+		this.codeFight = codeFight;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }

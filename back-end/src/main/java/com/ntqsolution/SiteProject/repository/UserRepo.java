@@ -6,4 +6,8 @@ import com.ntqsolution.SiteProject.repository.entites.User;
 
 public interface UserRepo extends PagingAndSortingRepository<User, Integer>{
 
+	public User findByEmail(String email);
+
+	public boolean existsByEmail(String email);
+
 }

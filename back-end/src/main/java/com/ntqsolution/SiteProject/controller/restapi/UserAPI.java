@@ -1,8 +1,11 @@
 package com.ntqsolution.SiteProject.controller.restapi;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ntqsolution.SiteProject.bussiness.UserBus;
 import com.ntqsolution.SiteProject.bussiness.vo.PageVO;
 import com.ntqsolution.SiteProject.bussiness.vo.UserVO;
-import com.ntqsolution.SiteProject.common.APIManager;
+import com.ntqsolution.SiteProject.constant.APIManager;
 import com.ntqsolution.SiteProject.controller.GenericResponse;
 
 @RestController
@@ -41,7 +44,7 @@ public class UserAPI extends BaseAPI{
 	}
 	
 	@PostMapping
-	public ResponseEntity<GenericResponse> add(@RequestBody UserVO userVO){
+	public ResponseEntity<GenericResponse> add(@RequestBody @Validated UserVO userVO){
 		userBus.addUser(userVO);
 		GenericResponse response = new GenericResponse("");
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.CREATED);

@@ -1,4 +1,4 @@
-package com.ntqsolution.SiteProject.common;
+package com.ntqsolution.SiteProject.constant;
 
 public class APIManager {
 	public final static String DASHBOARD = "dashboard";

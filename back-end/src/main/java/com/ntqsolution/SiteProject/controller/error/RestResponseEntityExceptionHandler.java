@@ -12,7 +12,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.ntqsolution.SiteProject.common.exception.BusinessException;
-import com.ntqsolution.SiteProject.common.exception.SystemException;
 import com.ntqsolution.SiteProject.controller.GenericResponse;
 
 @ControllerAdvice
@@ -65,7 +64,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
      * @param request
      * @return
      */
-    @ExceptionHandler({ Exception.class, SystemException.class })
+    @ExceptionHandler({ Exception.class})
     public ResponseEntity<Object> handleInternal(final RuntimeException ex,
             final WebRequest request) {
         logger.error("500 Status Code", ex);

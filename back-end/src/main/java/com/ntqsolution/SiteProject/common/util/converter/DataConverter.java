@@ -1,4 +1,4 @@
-package com.ntqsolution.SiteProject.common.util;
+package com.ntqsolution.SiteProject.common.util.converter;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -7,8 +7,8 @@ import java.io.UnsupportedEncodingException;
 
 import com.ntqsolution.SiteProject.common.exception.BusinessException;
 
-public class Util {
-	public static String convertInputStreamToString(InputStream inputStream) {	//ITS#27467
+public class DataConverter {
+	public static String InputStreamToString(InputStream inputStream) {	//ITS#27467
         try {																								//ITS#27467
             ByteArrayOutputStream result = new ByteArrayOutputStream();										//ITS#27467
             byte[] buffer = new byte[1024];																  	//ITS#27467

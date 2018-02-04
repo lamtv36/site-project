@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-@ComponentScan(basePackages = { "com.ntqsolution.SiteProject.controller", "com.ntqsolution.SiteProject.services", "com.ntqsolution.SiteProject.restapi" })
+@ComponentScan(basePackages = { "com.ntqsolution.SiteProject.controller", "com.ntqsolution.SiteProject.bussiness", "com.ntqsolution.SiteProject.repository" })
 @EntityScan(basePackages = {"com.ntqsolution.SiteProject.repository.entites"})
 @EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter{

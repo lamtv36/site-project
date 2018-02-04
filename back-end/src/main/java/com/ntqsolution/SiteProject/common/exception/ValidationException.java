@@ -3,7 +3,7 @@ package com.ntqsolution.SiteProject.common.exception;
 /**
 * The Class SystemException.
 */
-public final class SystemException extends RuntimeException {
+public final class ValidationException extends RuntimeException {
 
  /** The Constant serialVersionUID. */
  private static final long serialVersionUID = 5861310537366287163L;
@@ -11,7 +11,7 @@ public final class SystemException extends RuntimeException {
  /**
   * Instantiates a new system exception.
   */
- public SystemException() {
+ public ValidationException() {
      super();
  }
 
@@ -21,7 +21,7 @@ public final class SystemException extends RuntimeException {
   * @param message the message
   * @param cause the cause
   */
- public SystemException(final String message, final Throwable cause) {
+ public ValidationException(final String message, final Throwable cause) {
      super(message, cause);
  }
 
@@ -30,7 +30,7 @@ public final class SystemException extends RuntimeException {
   *
   * @param message the message
   */
- public SystemException(final String message) {
+ public ValidationException(final String message) {
      super(message);
  }
 
@@ -39,7 +39,7 @@ public final class SystemException extends RuntimeException {
   *
   * @param cause the cause
   */
- public SystemException(final Throwable cause) {
+ public ValidationException(final Throwable cause) {
      super(cause);
  }
 

@@ -16,4 +16,6 @@ public interface UserBus {
 	public void updateUser(UserVO userVO);
 
 	public PageVO<UserVO> getPage(Pageable pageable);
+
+	public UserVO getUserByEmail(String email);
 }
