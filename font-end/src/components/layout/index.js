@@ -3,7 +3,7 @@ import "../../assert/css/layout.css"
 import Link from 'react-router-dom/Link';
 import MainNavigation from "./components/main-navigation";
 import DropDownOption from "./components/drop-down-option";
-import MemberCollection from "./components/members";
+// import MemberCollection from "./components/members";
 
 export default class Layout extends Component {
   render() {
@@ -14,7 +14,6 @@ export default class Layout extends Component {
         <MainNavigation />
         <article id="main-content"> 
           {this.props.children}
-          <MemberCollection />
         </article>
         <aside>Aside</aside>
       </section> 
