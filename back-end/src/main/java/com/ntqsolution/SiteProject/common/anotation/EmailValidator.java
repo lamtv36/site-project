@@ -12,7 +12,7 @@ public class EmailValidator implements ConstraintValidator<EmailValid, String> {
 	}
 
 	@Override
-	public boolean isValid(String arg0, ConstraintValidatorContext arg1) {
+	public boolean isValid(String zz, ConstraintValidatorContext arg1) {
 		// TODO Auto-generated method stub
 		return false;
 	}

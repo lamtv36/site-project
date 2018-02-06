@@ -7,19 +7,19 @@ import org.springframework.stereotype.Service;
 import com.ntqsolution.SiteProject.bussiness.vo.PageVO;
 import com.ntqsolution.SiteProject.bussiness.vo.UserVO;
 import com.ntqsolution.SiteProject.common.exception.BusinessException;
-import com.ntqsolution.SiteProject.repository.DivisionRepo;
-import com.ntqsolution.SiteProject.repository.TeamRepo;
-import com.ntqsolution.SiteProject.repository.UserRepo;
+import com.ntqsolution.SiteProject.repository.DivisionRepository;
+import com.ntqsolution.SiteProject.repository.TeamRepository;
+import com.ntqsolution.SiteProject.repository.UserRepository;
 import com.ntqsolution.SiteProject.repository.entites.Division;
 import com.ntqsolution.SiteProject.repository.entites.User;
 
 @Service
 public class UserBusImpl extends BaseBus<User, UserVO> implements UserBus{
-	private UserRepo userRepo;
-	private DivisionRepo divisionRepo;
-	private TeamRepo teamRepo;
+	private UserRepository userRepo;
+	private DivisionRepository divisionRepo;
+	private TeamRepository teamRepo;
 	
-	public UserBusImpl(UserRepo userRepo, DivisionRepo divisionRepo, TeamRepo teamRepo) {
+	public UserBusImpl(UserRepository userRepo, DivisionRepository divisionRepo, TeamRepository teamRepo) {
 		this.userRepo = userRepo;
 		this.divisionRepo = divisionRepo;
 		this.teamRepo = teamRepo;
@@ -27,13 +27,13 @@ public class UserBusImpl extends BaseBus<User, UserVO> implements UserBus{
 	
 	@Override
 	public void addUser(UserVO userVO) {
-		if(userRepo.existsByEmail(userVO.getEmail())) {
+		/*if(userRepo.existsByEmail(userVO.getEmail())) {
 			throw new BusinessException("User already existed");
 		}
 		
 		if(!validateDivision(userVO.getDivision())) {
 			
-		}
+		}*/
 		User user = mapper.voToEntity(userVO);
 		userRepo.save(user);
 	}

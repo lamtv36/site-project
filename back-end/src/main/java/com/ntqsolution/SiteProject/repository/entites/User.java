@@ -14,35 +14,44 @@ import javax.persistence.Table;
 @Entity
 @Table(name="m_user")
 public class User {
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int id;
-	private String name;
-	private String email;
+	
+	private String fullName;
+	private String userName;
 	private String password;
+	private String email;
+	
 	@Column(name="nick_name", nullable = true)
 	private String nickName;
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Team team;
 	private Date joinDate;
-	private String codeFight;
+	private String codeFightIdentity;
 	private boolean active;
-	
+	private int attend;
 	
 	public User() {
 		
 	}
 	
-	public User(String name, String email, String password, String nickName) {
-		this.name = name;
+	public User(String fullName, String email, String password, String nickName) {
+		this.fullName = fullName;
 		this.email = email;
 		this.password = password;
 		this.nickName = nickName;
 	}
+	
+	public String getFullName() {
+		return fullName;
+	}
 
-	public String getName() {
-		return name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getEmail() {
@@ -51,10 +60,6 @@ public class User {
 
 	public String getPassword() {
 		return password;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public void setEmail(String email) {
@@ -97,12 +102,12 @@ public class User {
 		this.joinDate = joinDate;
 	}
 
-	public String getCodeFight() {
-		return codeFight;
+	public String getCodeFightIdentity() {
+		return codeFightIdentity;
 	}
 
-	public void setCodeFight(String codeFight) {
-		this.codeFight = codeFight;
+	public void setCodeFightIdentity(String codeFightIdentity) {
+		this.codeFightIdentity = codeFightIdentity;
 	}
 
 	public boolean isActive() {
@@ -112,4 +117,21 @@ public class User {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public int getAttend() {
+		return attend;
+	}
+
+	public void setAttend(int attend) {
+		this.attend = attend;
+	}
+	
 }

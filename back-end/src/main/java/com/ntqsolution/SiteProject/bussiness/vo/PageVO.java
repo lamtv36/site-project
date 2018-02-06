@@ -2,7 +2,7 @@ package com.ntqsolution.SiteProject.bussiness.vo;
 
 import java.util.List;
 
-public class PageVO<VO> {
+public class PageVO<VO> extends RestEntityVO {
 	private int total;
 	private int records;
 	private int page;

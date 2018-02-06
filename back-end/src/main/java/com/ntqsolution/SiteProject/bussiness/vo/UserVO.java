@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Email;
 import com.ntqsolution.SiteProject.repository.entites.Division;
 import com.ntqsolution.SiteProject.repository.entites.Team;
 
-public class UserVO {
+public class UserVO  extends RestEntityVO {
 	private int id;
 	@Email
 	@NotNull

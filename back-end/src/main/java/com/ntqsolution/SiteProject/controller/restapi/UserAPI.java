@@ -1,6 +1,5 @@
 package com.ntqsolution.SiteProject.controller.restapi;
 
-import javax.validation.Valid;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -18,47 +17,56 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ntqsolution.SiteProject.bussiness.UserBus;
 import com.ntqsolution.SiteProject.bussiness.vo.PageVO;
 import com.ntqsolution.SiteProject.bussiness.vo.UserVO;
+import com.ntqsolution.SiteProject.common.exception.ApplicationException;
 import com.ntqsolution.SiteProject.constant.APIManager;
+import com.ntqsolution.SiteProject.constant.ResponseCode;
 import com.ntqsolution.SiteProject.controller.GenericResponse;
 
 @RestController
 @RequestMapping(APIManager.USERS)
-public class UserAPI extends BaseAPI{
+public class UserAPI extends BaseAPI {
 	private UserBus userBus;
-	
+
 	public UserAPI(UserBus userBus) {
 		this.userBus = userBus;
 	}
-	
+
 	@GetMapping("/")
-	public ResponseEntity<UserVO> getUser(@RequestParam(name="id") int userId){
-		UserVO userVO = userBus.getUser(userId);
+	public ResponseEntity<UserVO> getUser(@RequestParam(name = "id") int userId) {
+		UserVO userVO = null;
+		try {
+			userVO = userBus.getUser(userId);
+			userVO.setCode(ResponseCode.SUCCESS);
+		} catch (ApplicationException e) {
+			userVO.setCode(e.getCode());
+		} catch (Exception e) {
+			userVO.setCode(ResponseCode.UNKONW_ERROR);
+		}
 		return new ResponseEntity<UserVO>(userVO, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/list")
-	public ResponseEntity<PageVO<UserVO>> getAll(Pageable pageable){
+	public ResponseEntity<PageVO<UserVO>> getAll(Pageable pageable) {
 		PageVO<UserVO> pageVo = userBus.getPage(pageable);
-		
 		return new ResponseEntity<PageVO<UserVO>>(pageVo, HttpStatus.OK);
 	}
-	
+
 	@PostMapping
-	public ResponseEntity<GenericResponse> add(@RequestBody @Validated UserVO userVO){
+	public ResponseEntity<GenericResponse> add(@RequestBody @Validated UserVO userVO) {
 		userBus.addUser(userVO);
 		GenericResponse response = new GenericResponse("");
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.CREATED);
 	}
-	
+
 	@DeleteMapping
-	public ResponseEntity<GenericResponse> delete(@RequestBody UserVO userVO){
+	public ResponseEntity<GenericResponse> delete(@RequestBody UserVO userVO) {
 		userBus.removeUser(userVO.getId());
 		GenericResponse response = new GenericResponse("");
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
 	}
-	
+
 	@PatchMapping
-	public ResponseEntity<GenericResponse> update(@RequestBody UserVO userVO){
+	public ResponseEntity<GenericResponse> update(@RequestBody UserVO userVO) {
 		userBus.updateUser(userVO);
 		GenericResponse response = new GenericResponse("");
 		return new ResponseEntity<GenericResponse>(response, HttpStatus.OK);
