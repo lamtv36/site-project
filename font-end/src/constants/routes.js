@@ -7,8 +7,16 @@ import {
     Resource,
     Schedule,
     Users,
-    Topics
+    Topics,
+    Profile
 } from "../page";
+
+const RouteUsersGroup = ({match}) => (
+	<div> 
+	    <Route exact path={match.url} component={Users}/>
+	    <Route path={`${match.url}/:userId`} component={Profile}/>
+    </div>
+)
 
 export default () => (
   <Router>
@@ -19,7 +27,7 @@ export default () => (
         <Route path="/resources" component={Resource}/>
         <Route path="/schedule" component={Schedule}/>
         <Route path="/topics" component={Topics}/>
-        <Route path="/users" component={Users}/>
+        <Route path="/users" component={RouteUsersGroup}/>
       </div>
   </Router>
 )
